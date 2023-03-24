@@ -31,7 +31,10 @@ namespace ShapesAreaCalculatorLibraryTests
         {
             double radius = -5;
 
-            Assert.Throws<ArgumentException>(() => new Circle(radius));
+            var exMessage = Assert.Throws<ArgumentException>(() => new Circle(radius));
+
+            Assert.StartsWith("Radius must be positive number!", exMessage.Message);
+            Assert.Equal("radius", exMessage.ParamName);
         }
 
         [Theory]
