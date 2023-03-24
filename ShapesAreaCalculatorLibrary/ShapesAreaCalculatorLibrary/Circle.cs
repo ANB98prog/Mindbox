@@ -21,7 +21,7 @@ namespace ShapesAreaCalculatorLibrary
         {
             if (!NumberValidationHelper.IsPositive(radius))
             {
-                throw new ArgumentException("Radius must be positive number!");
+                throw new ArgumentException("Radius must be positive number!", nameof(radius));
             }
 
             Radius = radius;
