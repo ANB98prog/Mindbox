@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShapesAreaCalculatorLibrary\ShapesAreaCalculatorLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
