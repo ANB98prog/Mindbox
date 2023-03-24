@@ -1,4 +1,4 @@
-﻿namespace ShapesAreaCalculatorLibrary
+﻿namespace ShapesAreaCalculatorLibrary.Helpers
 {
     /// <summary>
     /// Numbers validation helper
