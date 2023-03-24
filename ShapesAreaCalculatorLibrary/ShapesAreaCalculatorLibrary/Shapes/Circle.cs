@@ -1,7 +1,8 @@
-﻿using ShapesAreaCalculatorLibrary.Interfaces;
+﻿using ShapesAreaCalculatorLibrary.Helpers;
+using ShapesAreaCalculatorLibrary.Interfaces;
 using System;
 
-namespace ShapesAreaCalculatorLibrary
+namespace ShapesAreaCalculatorLibrary.Shapes
 {
     /// <summary>
     /// Circle shape

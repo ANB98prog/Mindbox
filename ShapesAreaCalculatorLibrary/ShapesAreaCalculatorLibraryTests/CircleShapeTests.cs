@@ -1,5 +1,5 @@
-using ShapesAreaCalculatorLibrary;
 using ShapesAreaCalculatorLibrary.Interfaces;
+using ShapesAreaCalculatorLibrary.Shapes;
 
 namespace ShapesAreaCalculatorLibraryTests
 {
