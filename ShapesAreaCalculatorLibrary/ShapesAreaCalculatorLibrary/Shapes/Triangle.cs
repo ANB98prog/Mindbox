@@ -1,4 +1,5 @@
-﻿using ShapesAreaCalculatorLibrary.Interfaces;
+﻿using ShapesAreaCalculatorLibrary.Helpers;
+using ShapesAreaCalculatorLibrary.Interfaces;
 using System;
 
 namespace ShapesAreaCalculatorLibrary.Shapes
@@ -31,6 +32,13 @@ namespace ShapesAreaCalculatorLibrary.Shapes
         /// <param name="c">Triangle side 'c'</param>
         public Triangle(double a, double b, double c)
         {
+            if (!NumberValidationHelper.IsPositive(a))
+                throw new ArgumentException("All triangle sides must be positive!", nameof(a));
+            if (!NumberValidationHelper.IsPositive(b))
+                throw new ArgumentException("All triangle sides must be positive!", nameof(b));
+            if (!NumberValidationHelper.IsPositive(c))
+                throw new ArgumentException("All triangle sides must be positive!", nameof(c));
+
             A = a;
             B = b;
             C = c;
@@ -42,7 +50,7 @@ namespace ShapesAreaCalculatorLibrary.Shapes
         /// <returns>true if it is else if not</returns>
         public bool IsRightAngled()
         {
-            return false;
+            return Math.Pow(C, 2) == Math.Pow(A, 2) + Math.Pow(B, 2);
         }
 
         /// <summary>
