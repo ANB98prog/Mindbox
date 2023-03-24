@@ -19,6 +19,11 @@ namespace ShapesAreaCalculatorLibrary
         /// <param name="radius">Circle radius</param>
         public Circle(double radius)
         {
+            if (!NumberValidationHelper.IsPositive(radius))
+            {
+                throw new ArgumentException("Radius must be positive number!");
+            }
+
             Radius = radius;
         }
 
