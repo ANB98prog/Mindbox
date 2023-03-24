@@ -35,5 +35,15 @@ namespace ShapesAreaCalculatorLibrary
         {
             return Math.PI * Math.Pow(Radius, 2);
         }
+
+        /// <summary>
+        /// Gets area of the circle by its radius
+        /// </summary>
+        /// <param name="precision">Result precision</param>
+        /// <returns>Area of the circle with specified precision</returns>
+        public double GetArea(int precision)
+        {
+            return Math.Round(GetArea(), precision);
+        }
     }
 }
