@@ -14,9 +14,9 @@ namespace ShapesAreaCalculatorLibraryTests
         [Fact]
         public void CreateTriangleFact()
         {
-            double a = 1;
-            double b = 2;
-            double c = 3;
+            double a = 12;
+            double b = 5;
+            double c = 13;
 
             Triangle triangle = new Triangle(a, b, c);
 
@@ -38,34 +38,8 @@ namespace ShapesAreaCalculatorLibraryTests
             Assert.Equal(invalidParam, exMessage.ParamName);
         }
 
-        [Fact]
-        public void ChangeTriangleSidesSideFact()
-        {
-            Triangle triangle = new Triangle(1, 1, 1);
-
-            Assert.Equal(0.4330127018922193, triangle.GetArea());
-
-            triangle.A = 3;
-            triangle.B = 4;
-            triangle.C = 5;
-
-            Assert.Equal(6, triangle.GetArea());
-        }
-
-        [Fact]
-        public void ChangeTriangleSidesIfNegativeSideFact()
-        {
-            Triangle triangle = new Triangle(1, 1, 1);
-
-            Assert.Equal(0.4330127018922193, triangle.GetArea());
-
-            Assert.Throws<ArgumentException>(() => triangle.A = -3);
-
-        }
-
-
         [Theory]
-        [InlineData(1, 2, 3, 0)]
+        [InlineData(12, 5, 13, 30)]
         [InlineData(1, 1, 1, 0.4330127018922193)]
         [InlineData(3, 4, 5, 6)]
         public void GetTriangleAreaFact(double a, double b, double c, double expected)
@@ -76,7 +50,7 @@ namespace ShapesAreaCalculatorLibraryTests
         }
 
         [Theory]
-        [InlineData(1, 2, 3, 1, 0)]
+        [InlineData(12, 5, 13, 1, 30)]
         [InlineData(1, 1, 1, 6, 0.433013)]
         [InlineData(3, 4, 5, 0, 6)]
         public void GetTriangleAreaWithPrecisionFact(double a, double b, double c, int precision,  double expected)
@@ -87,7 +61,6 @@ namespace ShapesAreaCalculatorLibraryTests
         }
 
         [Theory]
-        [InlineData(1, 2, 3, false)]
         [InlineData(1, 1, 1, false)]
         [InlineData(3, 4, 5, true)]
         [InlineData(12, 5, 13, true)]

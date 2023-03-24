@@ -12,25 +12,7 @@ namespace ShapesAreaCalculatorLibrary.Shapes
         /// <summary>
         /// Circle radius
         /// </summary>
-        private double radius;
-
-        /// <summary>
-        /// Circle radius
-        /// </summary>
-        public double Radius 
-        {
-            get
-            {
-                return radius;
-            }
-
-            set
-            {
-                if (!NumberValidationHelper.IsPositive(value))
-                    throw new ArgumentException("Radius must be positive number!", nameof(radius));
-                radius = value;
-            }
-        }
+        public double Radius { get; private set; }
 
         /// <summary>
         /// Initializes class instance of <see cref="Circle"/>
@@ -38,6 +20,9 @@ namespace ShapesAreaCalculatorLibrary.Shapes
         /// <param name="radius">Circle radius</param>
         public Circle(double radius)
         {
+            if (!NumberValidationHelper.IsPositive(radius))
+                throw new ArgumentException("Radius must be positive number!", nameof(radius));
+
             Radius = radius;
         }
 
