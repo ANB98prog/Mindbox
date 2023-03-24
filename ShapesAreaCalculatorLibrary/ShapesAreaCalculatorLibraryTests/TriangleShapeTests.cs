@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Sdk;
 
 namespace ShapesAreaCalculatorLibraryTests
 {
@@ -36,6 +37,32 @@ namespace ShapesAreaCalculatorLibraryTests
             Assert.StartsWith("All triangle sides must be positive!", exMessage.Message);
             Assert.Equal(invalidParam, exMessage.ParamName);
         }
+
+        [Fact]
+        public void ChangeTriangleSidesSideFact()
+        {
+            Triangle triangle = new Triangle(1, 1, 1);
+
+            Assert.Equal(0.4330127018922193, triangle.GetArea());
+
+            triangle.A = 3;
+            triangle.B = 4;
+            triangle.C = 5;
+
+            Assert.Equal(6, triangle.GetArea());
+        }
+
+        [Fact]
+        public void ChangeTriangleSidesIfNegativeSideFact()
+        {
+            Triangle triangle = new Triangle(1, 1, 1);
+
+            Assert.Equal(0.4330127018922193, triangle.GetArea());
+
+            Assert.Throws<ArgumentException>(() => triangle.A = -3);
+
+        }
+
 
         [Theory]
         [InlineData(1, 2, 3, 0)]
