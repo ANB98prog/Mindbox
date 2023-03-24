@@ -12,17 +12,58 @@ namespace ShapesAreaCalculatorLibrary.Shapes
         /// <summary>
         /// Triangle side 'a'
         /// </summary>
-        public double A { get; private set; }
+        private double a;
+
+        /// <summary>
+        /// Triangle side 'a'
+        /// </summary>
+        public double A
+        {
+            get { return this.a; }
+            set {
+                if (!NumberValidationHelper.IsPositive(value))
+                    throw new ArgumentException("All triangle sides must be positive!", nameof(a));
+                a = value;
+            }
+        }
 
         /// <summary>
         /// Triangle side 'b'
         /// </summary>
-        public double B { get; private set; }
+        private double b;
+
+        /// <summary>
+        /// Triangle side 'b'
+        /// </summary>
+        public double B
+        {
+            get { return this.b; }
+            set
+            {
+                if (!NumberValidationHelper.IsPositive(value))
+                    throw new ArgumentException("All triangle sides must be positive!", nameof(b));
+                b = value;
+            }
+        }
 
         /// <summary>
         /// Triangle side 'c'
         /// </summary>
-        public double C { get; private set; }
+        private double c;
+
+        /// <summary>
+        /// Triangle side 'c'
+        /// </summary>
+        public double C
+        {
+            get { return this.c; }
+            set
+            {
+                if (!NumberValidationHelper.IsPositive(value))
+                    throw new ArgumentException("All triangle sides must be positive!", nameof(c));
+                c = value;
+            }
+        }
 
         /// <summary>
         /// Initializes class instance of <see cref="Triangle"/>
@@ -32,13 +73,6 @@ namespace ShapesAreaCalculatorLibrary.Shapes
         /// <param name="c">Triangle side 'c'</param>
         public Triangle(double a, double b, double c)
         {
-            if (!NumberValidationHelper.IsPositive(a))
-                throw new ArgumentException("All triangle sides must be positive!", nameof(a));
-            if (!NumberValidationHelper.IsPositive(b))
-                throw new ArgumentException("All triangle sides must be positive!", nameof(b));
-            if (!NumberValidationHelper.IsPositive(c))
-                throw new ArgumentException("All triangle sides must be positive!", nameof(c));
-
             A = a;
             B = b;
             C = c;
