@@ -17,16 +17,6 @@ namespace ShapesAreaCalculatorLibraryTests
         }
 
         [Fact]
-        public void CreateCircleByInterfaceFact()
-        {
-            double radius = 5;
-
-            IShape circle = new Circle(radius);
-
-            Assert.NotNull(circle);
-        }
-
-        [Fact]
         public void CreateCircleWithNegativeRadiusFact()
         {
             double radius = -5;
